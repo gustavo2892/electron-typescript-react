@@ -13,15 +13,15 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useAppContext } from '../../context/AppContext';
 
 import { createUserFormSchema } from "../../schemas/user";
-import { Input } from "../Form/Input";
-import { Select } from "../Form/Select";
-import { Textarea } from "../Form/Textarea";
-import { RadioGroup } from "../Form/RadioGroup";
-import { Checkbox } from "../Form/Checkbox";
-import { CheckboxGroup } from "../Form/CheckboxGroup";
-import { Switch } from "../Form/Switch";
-import { DatePicker } from "../Form/DatePicker";
-import { TextEditor } from "../Form/TextEditor";
+import { Input } from "../../components/Form/Input";
+import { Select } from "../../components/Form/Select";
+import { Textarea } from "../../components/Form/Textarea";
+import { RadioGroup } from "../../components/Form/RadioGroup";
+import { Checkbox } from "../../components/Form/Checkbox";
+import { CheckboxGroup } from "../../components/Form/CheckboxGroup";
+import { Switch } from "../../components/Form/Switch";
+import { DatePicker } from "../../components/Form/DatePicker";
+import { TextEditor } from "../../components/Form/TextEditor";
 
 export type CreateUserFormData = {
   name: string;

@@ -24,9 +24,9 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
       <ChakraInput
         name={nameForm}
         id={nameForm}
-        focusBorderColor="pink.500"
+        focusBorderColor="blue.500"
         ref={ref}
-        size="lg"
+        size="md"
         {...rest}
       />
       {!!error && (
