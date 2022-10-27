@@ -1,14 +1,25 @@
-import { Route, Routes } from 'react-router-dom';
+import { MemoryRouter as Router, Route, Routes } from 'react-router-dom';
+
+import LayoutGlobal from './layout/LayoutGlobal';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
 const DefaultRoute = () => {
   
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="home" element={<Home />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <LayoutGlobal />
+          }
+        >
+          <Route index element={<Home />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 

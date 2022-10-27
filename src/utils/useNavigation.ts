@@ -3,6 +3,7 @@ import { Location, NavigateFunction, Params, useLocation, useNavigate, useParams
 export interface INavigation {
   goToLogin: () => void;
   goToHome: (replace?: boolean) => void;
+  goBack: () => void;
   location: Location;
   params: Readonly<Params<string>>;
   navigate: NavigateFunction;
@@ -23,8 +24,8 @@ const useNavigation = (): INavigation => {
   }, [params, location]);
 
   const navigation = {
-    goToLogin: () => navigate('/', { state: { from: navigationApi.current['location'].pathname } }),
-    goToHome: (replace = false) => navigate('/home', { replace }),
+    goToLogin: () => navigate('/login', { state: { from: navigationApi.current['location'].pathname } }),
+    goToHome: (replace = false) => navigate('/', { replace }),
     goBack: () => navigate((navigation.location?.state as { from: string })?.from ?? '/', { replace: true }),
     location: location,
     params,

@@ -34,6 +34,7 @@ const CheckboxBase = (
             isChecked={value}
             onChange={(e) => onChange(e.target.checked)}
             ref={ref}
+            // colorScheme="primary"
             {...rest}
           >
             {label}

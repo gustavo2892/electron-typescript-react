@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useState, useEffect, forwardRef } from "react";
-import { FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/react";
+import { FormControl, FormLabel, FormErrorMessage, useTheme } from "@chakra-ui/react";
 import { EditorState, ContentState, convertToRaw } from "draft-js";
 import { Container, CountTextEditor, TextEditorComponent } from "./style";
 import draftToHtml from "draftjs-to-html";
@@ -41,6 +41,7 @@ const TextEditorBase = (
   }: TextEditorProps,
   ref
 ) => {
+  const { colors } = useTheme();
   const [editorText, setEditorText] = useState(EditorState.createEmpty());
   const [countLength, setCountLength] = useState(0);
   
@@ -148,7 +149,7 @@ const TextEditorBase = (
   return (
     <FormControl isInvalid={!!error}>
       {!!label && <FormLabel as="legend">{label}</FormLabel>}
-      <Container hasError={!!error ? 'true' : 'false'} isDisabled={disabled ? "true" : "false"}>
+      <Container hasError={!!error ? 'true' : 'false'} isDisabled={disabled ? "true" : "false"} primary={colors.blue[500]} border={colors.gray[200]}>
         <Controller
           render={() => (
             <TextEditorComponent

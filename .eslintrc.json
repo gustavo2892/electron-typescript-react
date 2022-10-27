@@ -25,6 +25,8 @@
   "rules": {
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "dot-notation": "off"
+    "dot-notation": "off",
+    "no-unneeded-ternary": "off",
+    "camelcase": "off"
   }
 }

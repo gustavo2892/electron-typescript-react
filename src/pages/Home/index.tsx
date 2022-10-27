@@ -22,7 +22,6 @@ import { CheckboxGroup } from "../../components/Form/CheckboxGroup";
 import { Switch } from "../../components/Form/Switch";
 import { DatePicker } from "../../components/Form/DatePicker";
 import { TextEditor } from "../../components/Form/TextEditor";
-import useNavigation from '../../utils/useNavigation';
 
 export type CreateUserFormData = {
   name: string;
@@ -40,9 +39,8 @@ export type CreateUserFormData = {
 };
 
 function Home() {
-  const { t, i18n } = useAppContext();
-  const nav = useNavigation();
-
+  const { t, i18n, handleLogout } = useAppContext();
+  
   const { register, handleSubmit, formState, setValue, control, reset, watch } =
     useForm({
       resolver: yupResolver(createUserFormSchema),
@@ -195,15 +193,13 @@ function Home() {
           <Flex mt="8" justify="flex-end">
             <HStack spacing="4">
               <Button
-                colorScheme="blue"
                 onClick={() => {
-                  nav.goToLogin();
+                  handleLogout();
                 }}
               >
-                Voltar
+                Logout
               </Button>
               <Button
-                colorScheme="blue"
                 onClick={() => {
                   if (i18n.language === 'en-US') {
                     i18n.changeLanguage('pt-BR')
@@ -227,7 +223,6 @@ function Home() {
                   setValue("date", null, { shouldValidate: false });
                   setValue("textEditor", '<p></p>', { shouldValidate: false });
                 }}
-                colorScheme="blue"
               >
                 Limpar {t('HELLO_WORLD')}
               </Button>

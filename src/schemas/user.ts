@@ -2,7 +2,8 @@ import * as yup from 'yup';
 
 export const loginUserFormSchema = yup.object().shape({
   username: yup.string().required('Campo obrigatório'),
-  password: yup.string().required('Campo obrigatório').min(6, 'No mínimo 6 caracteres')
+  password: yup.string().required('Campo obrigatório').min(6, 'No mínimo 6 caracteres'),
+  keepConnected: yup.boolean()
 })
 
 export const createUserFormSchema = yup.object().shape({
@@ -21,7 +22,7 @@ export const createUserFormSchema = yup.object().shape({
   date: yup.string().required('Campo obrigatório').nullable(),
   textEditor: yup.string().test(
     "validation-default-value",
-    "Campo obrigatório 2",
+    "Campo obrigatório",
     function (value) {
       if (value === '<p></p>') {
         return false;

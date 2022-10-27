@@ -5,6 +5,8 @@ import { EditorProps, Editor } from 'react-draft-wysiwyg';
 interface ContainerProps {
   hasError: string;
   isDisabled: string;
+  border: string;
+  primary: string;
 }
 
 interface TextEditorComponentProps extends EditorProps {
@@ -36,7 +38,10 @@ export const Container = styled.div<ContainerProps>`
 }
 
 .rdw-option-wrapper:hover {
-  box-shadow: 1px 1px 0px #BFBDBD;
+  ${props =>
+    css`
+      border-color: ${props.primary};
+    `}
 }
 .rdw-option-wrapper:active {
   box-shadow: 1px 1px 0px #BFBDBD inset;
@@ -868,25 +873,31 @@ export const Container = styled.div<ContainerProps>`
   max-height: 260px;
   overflow: auto;
   box-sizing: border-box;
-  border: 1px solid #E2E8F0;
   padding: 5px 10px;
-  border-radius: 0.375rem;
   font-size: 1.125rem;
 
   ${props =>
-    props.isDisabled == 'true' &&
+    css`
+      border: 1px solid ${props.border};
+    `}
+
+  ${props =>
+    props.isDisabled === 'true' &&
     css`
       background: #F7F8F9;
       cursor: not-allowed;
     `}
 
   &:focus-within {
-    border-color: #D53F8C;
-    box-shadow: 0 0 0 1px #D53F8C;
+    ${props =>
+    css`
+      border-color: ${props.primary};
+      box-shadow: 0 0 0 1px ${props.primary};
+    `}
   }
 
   ${props =>
-    props.hasError == 'true' &&
+    props.hasError === 'true' &&
     css`
       border-color: #E53E3E;
       box-shadow: 0 0 0 1px #e53e3e;
@@ -897,8 +908,6 @@ export const Container = styled.div<ContainerProps>`
 .rdw-editor-toolbar {
   padding: 6px 5px 0;
   height: 48px;
-  border-radius: 0.375rem;
-  border: 1px solid #E2E8F0;
   display: flex;
   justify-content: flex-start;
   background: white;
@@ -906,6 +915,11 @@ export const Container = styled.div<ContainerProps>`
   font-size: 15px;
   margin-bottom: 5px;
   user-select: none;
+
+  ${props =>
+    css`
+      border: 1px solid ${props.border};
+    `}
 }
 
 .public-DraftStyleDefault-block {

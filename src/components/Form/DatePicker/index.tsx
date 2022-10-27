@@ -26,10 +26,7 @@ const DatePickerBase = (
             onChange={(date: Date) => onChange(date)}
             ref={ref}
             customInput={
-              <Input
-                focusBorderColor="pink.500"
-                size="lg"
-              />
+              <Input />
             }
             popperPlacement="top"
             locale={ptBR}
