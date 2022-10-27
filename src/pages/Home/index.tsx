@@ -22,6 +22,7 @@ import { CheckboxGroup } from "../../components/Form/CheckboxGroup";
 import { Switch } from "../../components/Form/Switch";
 import { DatePicker } from "../../components/Form/DatePicker";
 import { TextEditor } from "../../components/Form/TextEditor";
+import useNavigation from '../../utils/useNavigation';
 
 export type CreateUserFormData = {
   name: string;
@@ -40,6 +41,8 @@ export type CreateUserFormData = {
 
 function Home() {
   const { t, i18n } = useAppContext();
+  const nav = useNavigation();
+
   const { register, handleSubmit, formState, setValue, control, reset, watch } =
     useForm({
       resolver: yupResolver(createUserFormSchema),
@@ -191,6 +194,14 @@ function Home() {
           </VStack>
           <Flex mt="8" justify="flex-end">
             <HStack spacing="4">
+              <Button
+                colorScheme="blue"
+                onClick={() => {
+                  nav.goToLogin();
+                }}
+              >
+                Voltar
+              </Button>
               <Button
                 colorScheme="blue"
                 onClick={() => {

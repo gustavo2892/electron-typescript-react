@@ -1,7 +1,7 @@
-import Login from './pages/Login';
+import { MemoryRouter as Router } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
 import { ChakraProvider } from "@chakra-ui/react";
-// import DefaultRoute from './routes';
+import DefaultRoute from './routes';
 
 import './i18n';
 
@@ -9,7 +9,9 @@ export function App() {
   return (
     <ChakraProvider>
       <AppContextProvider>
-        <Login />
+        <Router>
+          <DefaultRoute />
+        </Router>
       </AppContextProvider>
     </ChakraProvider>
   )

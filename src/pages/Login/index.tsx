@@ -9,6 +9,7 @@ import * as S from './styles'
 import { Input } from '../../components/Form/Input'
 import { Checkbox } from '../../components/Form/Checkbox'
 import { loginUserFormSchema } from '../../schemas/user'
+import useNavigation from '../../utils/useNavigation';
 
 export type LoginUserFormData = {
   username: string
@@ -16,12 +17,15 @@ export type LoginUserFormData = {
 }
 
 const Login = () => {
+  const nav = useNavigation();
+
   const { register, handleSubmit, formState, control } = useForm({
     resolver: yupResolver(loginUserFormSchema),
   })
 
   const handleLoginUser: SubmitHandler<LoginUserFormData> = async values => {
-    console.log('Values => ', values)
+    console.log('Values => ', values);
+    nav.goToHome();
   }
   return (
     <S.Wrapper as="form" onSubmit={handleSubmit(handleLoginUser)} padding="0">
