@@ -24,6 +24,33 @@ export const theme = extendTheme({
       700: "#0f0c4b",
       800: "#080531",
       900: "#020113"
+    },
+    chart: {
+      100: "#92CAE2",
+      200: "#8DEDC7",
+      300: "#6884C2",
+    },
+    danger: {
+      50: "#FFF1F0",
+      100: "#FFA39E",
+      200: "#FF7875",
+      300: "#FF4D4F",
+      400: "#F5222D"
+    },
+    warning: {
+      50: "#FFFBE6",
+      100: "#FFE58F",
+      200: "#FFC53D",
+      300: "#FAAD14",
+      400: "#FFEC3D"
+    },
+    success: {
+      50: "#E6FFEE",
+      100: "#73D13D",
+      200: "#52C41A",
+    },
+    accentColor: {
+      500: "#00BBDD",
     }
   },
   styles: {
